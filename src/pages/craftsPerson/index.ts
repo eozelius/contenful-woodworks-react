@@ -1,0 +1,1 @@
+export { CraftsPerson } from './CraftsPerson';

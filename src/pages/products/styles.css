@@ -1,0 +1,43 @@
+#multiple_products {
+  display: flex;
+  flex-direction: column;
+}
+
+.products-list-container {
+  display: flex;
+  width: 75%;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 5% 2%;
+}
+
+.description-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.products-list-container img {
+  width: 30%;
+  margin: 5%;
+  aspect-ratio: 3/4 auto;
+}
+
+.images-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.crafts-person-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.crafts-person-container img {
+  width: 20%;
+  align-self: flex-end;
+}
