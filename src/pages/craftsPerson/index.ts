@@ -1,1 +1,1 @@
-export { CraftsPerson } from './CraftsPerson';
+export { CraftsPerson } from "./CraftsPerson";

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useLoaderData } from "react-router-dom";
 
-import './Home.css';
-import { Products } from '../products';
+import "./Home.css";
+import { Products } from "../products";
 
 export const Home: React.FC = (): JSX.Element => {
   // @ts-ignore
@@ -13,9 +13,6 @@ export const Home: React.FC = (): JSX.Element => {
       <h1>Ozzie's Wood Working</h1>
 
       <Products products={products} />
-
-
     </div>
   );
-}
-
+};

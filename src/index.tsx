@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Contentful from './api/Contentful';
-import { Home } from './pages/home';
-import { CraftsPerson } from './pages/craftsPerson';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Contentful from "./api/Contentful";
+import { Home } from "./pages/home";
+import { CraftsPerson } from "./pages/craftsPerson";
 // import { Products, Product } from './pages/products';
 // import { Products } from './pages/products';
-import reportWebVitals from './reportWebVitals';
-import './index.css';
+import reportWebVitals from "./reportWebVitals";
+import "./index.css";
 
 import {
   createBrowserRouter,
@@ -24,16 +24,18 @@ const router = createBrowserRouter([
     loader: async () => {
       const products = await contentfulApi.retrieveWWProducts();
       return products;
-    }
+    },
   },
   {
-    path: '/crafts-people/:craftsPersonId',
+    path: "/crafts-people/:craftsPersonId",
     element: <CraftsPerson />,
     loader: async (request) => {
-      const craftsPerson = await contentfulApi.retrieveCraftsPerson(request.params.craftsPersonId as string);
+      const craftsPerson = await contentfulApi.retrieveCraftsPerson(
+        request.params.craftsPersonId as string
+      );
       return craftsPerson[0];
-    }
-  }
+    },
+  },
   // {
   //   path: '/products',
   //   children: [
@@ -55,8 +57,8 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-)
+  document.getElementById("root") as HTMLElement
+);
 
 root.render(
   <React.StrictMode>
