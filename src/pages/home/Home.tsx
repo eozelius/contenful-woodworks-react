@@ -1,12 +1,11 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-
-import "./Home.css";
 import { Products } from "../products";
+import { TProduct } from "../../types/product";
+import "./Home.css";
 
 export const Home: React.FC = (): JSX.Element => {
-  // @ts-ignore
-  const products: any[] = useLoaderData();
+  const products = useLoaderData() as TProduct[];
 
   return (
     <div className="Home">

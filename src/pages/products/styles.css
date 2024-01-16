@@ -21,14 +21,15 @@
 
 .products-list-container img {
   width: 30%;
+  height: fit-content;
   margin: 5%;
-  aspect-ratio: 3/4 auto;
 }
 
 .images-container {
   display: flex;
   justify-content: center;
   width: 100%;
+  align-items: center;
 }
 
 .crafts-person-container {

@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Contentful from "./api/Contentful";
-import { Home } from "./pages/home";
-import { CraftsPerson } from "./pages/craftsPerson";
-// import { Products, Product } from './pages/products';
-// import { Products } from './pages/products';
-import reportWebVitals from "./reportWebVitals";
-import "./index.css";
-
 import {
   createBrowserRouter,
   RouterProvider,
-  // Route,
-  // Link,
 } from "react-router-dom";
+import Contentful from "./api/Contentful";
+import { Home } from "./pages/home";
+import { CraftsPerson } from "./pages/craftsPerson";
+import reportWebVitals from "./reportWebVitals";
+import { TProduct } from "./types/product";
+import { TCraftsPerson } from "./types/craftsperson";
+import "./index.css";
+
 
 const contentfulApi = new Contentful();
 
@@ -21,7 +19,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    loader: async () => {
+    loader: async (): Promise<TProduct[]> => {
       const products = await contentfulApi.retrieveWWProducts();
       return products;
     },
@@ -29,11 +27,11 @@ const router = createBrowserRouter([
   {
     path: "/crafts-people/:craftsPersonId",
     element: <CraftsPerson />,
-    loader: async (request) => {
+    loader: async (request): Promise<TCraftsPerson> => {
       const craftsPerson = await contentfulApi.retrieveCraftsPerson(
         request.params.craftsPersonId as string
       );
-      return craftsPerson[0];
+      return craftsPerson[0].fields;
     },
   },
   // {

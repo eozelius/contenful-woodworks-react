@@ -1,29 +1,26 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import { TCraftsPerson } from "../../types/craftsperson";
 import "./styles.css";
 
 type TProps = {};
 
 export const CraftsPerson: React.FC<TProps> = (): JSX.Element => {
-  // @ts-ignore
-  const craftsPerson = useLoaderData();
+  const craftsPerson = useLoaderData() as TCraftsPerson;
 
   return (
     <div id="crafts_person_container">
       {/* Name */}
-      {/* @ts-ignore */}
-      <h2>{craftsPerson.fields.name}</h2>
+      <h2>{craftsPerson.name}</h2>
 
       {/* Photo */}
-      {/* @ts-ignore */}
       <img
-        src={craftsPerson.fields.profilePhoto.fields.file.url}
-        alt={`${craftsPerson.fields.name}`}
+        src={craftsPerson.profilePhoto.fields.file.url}
+        alt={`${craftsPerson.name}`}
       />
 
       {/* Bio */}
-      {/* @ts-ignore */}
-      {craftsPerson.fields.bio.content.map((c: any, idx: number) => {
+      {craftsPerson.bio.content.map((c: any, idx: number) => {
         return c.content.map((paragraph: any) => (
           <p key={idx}>{paragraph.value}</p>
         ));

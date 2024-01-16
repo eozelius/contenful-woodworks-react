@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { TProduct } from "../../types/product";
 import "./styles.css";
 
 type TProps = {
-  products: any[];
+  products: TProduct[];
 };
 
 export const Products: React.FC<TProps> = ({ products }): JSX.Element => {
@@ -16,9 +17,9 @@ export const Products: React.FC<TProps> = ({ products }): JSX.Element => {
       {products &&
         products.length &&
         products.map((product: any, idx: number) => (
-          <div className="products-list-container">
+          <div className="products-list-container" key={idx}>
             {/* Title */}
-            <h3 key={idx}>{product.fields.title}</h3>
+            <h3>{product.fields.title}</h3>
 
             {/* Description */}
             {product.fields.description.content &&
