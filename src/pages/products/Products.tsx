@@ -1,4 +1,5 @@
 import React from "react";
+import Contentful from "../../api/Contentful";
 import { Link } from "react-router-dom";
 import { TProduct } from "../../types/product";
 import "./styles.css";
@@ -8,7 +9,7 @@ type TProps = {
 };
 
 export const Products: React.FC<TProps> = ({ products }): JSX.Element => {
-  console.log(`[ <Products> ] render() products => `, products);
+  // console.log(`[ <Products> ] render() products => `, products);
 
   return (
     <div id="multiple_products">
@@ -47,6 +48,22 @@ export const Products: React.FC<TProps> = ({ products }): JSX.Element => {
                     key={jdx}
                   />
                 ))}
+            </div>
+
+            {/* Dropbox */}
+            <div className="dropbox-container">
+              {product.fields.dropbox &&
+                product.fields.dropbox.length &&
+                product.fields.dropbox.map((dropbox: any, hdx: number) => {
+                  // const imageSrc = dropbox.link.replace('dl=0', 'raw=1')
+                  return (
+                    <img
+                      src={dropbox.link.replace('dl=0', 'raw=1')}
+                      alt={dropbox.name}
+                      key={hdx}
+                    />
+                  )
+                })}
             </div>
 
             {/* CraftsPerson */}
